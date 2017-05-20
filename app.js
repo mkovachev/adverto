@@ -17,7 +17,8 @@ const home = require('./routes/home-router');
 app.use('/', home);
 
 // start server
+const port = 3000;
 app.set('port', (process.env.PORT || 3000));
 app.listen(port, function () {
     console.log('server is running on port ' + app.get('port'));
-})
+});
