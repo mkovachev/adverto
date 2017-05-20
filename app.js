@@ -14,7 +14,11 @@ app.use('/libs', express.static('node_modules'));
 
 //routes
 const home = require('./routes/home-router');
-app.use('/', home);
+const main = require('./routes/main-router');
+app.get('/', home.get);
+app.get('/main', main.get);
+
+
 
 // start server
 const port = 3000;
