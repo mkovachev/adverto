@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// home
+// main
 router.get('/main', function (req, res) {
     res.render('main');
 });
