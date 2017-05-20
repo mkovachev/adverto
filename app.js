@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // set static folders
 app.use(express.static('public'));
-app.use('/libs', express.static('node_modules'));
+app.use(express.static('node_modules'));
 
 //routes
 const home = require('./routes/home-router');
