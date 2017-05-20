@@ -1,9 +1,9 @@
 (function () {
-    const sammy = Sammy('#container', function () {
+    const sammy = Sammy('#content', function () {
         this.get('#/', homeController.all)
-        this.get('#/categories', categoriesController.all)
-        this.get('#/categories/add', categoriesController.add)
-        this.get('#/newAd', categoriesController.newAd)
+        //this.get('#/categories', categoriesController.all)
+        //this.get('#/categories/add', categoriesController.add)
+        //this.get('#/newAd', categoriesController.newAd)
     })
 
     $(function () {

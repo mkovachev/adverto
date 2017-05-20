@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 
 // init express
@@ -15,10 +14,8 @@ app.use(express.static('node_modules'));
 //routes
 const home = require('./routes/home-router');
 const main = require('./routes/main-router');
-app.get('/', home.get);
-app.get('/main', main.get);
-
-
+app.get('/home', home);
+app.get('/main', main);
 
 // start server
 const port = 3000;
