@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 // home
-router.get('/home', function (req, res) {
-    res.render('home');
+router.get('/api/users', function (req, res) {
+    res.render('users');
 });
 
 

@@ -12,10 +12,9 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
 //routes
-const home = require('./routes/home-router');
-const main = require('./routes/main-router');
-app.get('/home', home);
-app.get('/main', main);
+const users = require('./routes/users-router');
+app.use('/api/users', users);
+
 
 // start server
 const port = 3000;

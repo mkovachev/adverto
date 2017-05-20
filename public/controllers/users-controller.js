@@ -1,23 +1,29 @@
 const usersController = function () {
 
-    function login(context) {
-        templates.get('login')
+    // function signIn(context) {}
+
+    function signUp(context) {
+        // render sign up view
+        templates.get('signup')
             .then(function (template) {
                 context.$element().html(template());
-            });
-    }
-
-    function register(context) {
-        templates.get('register')
-            .then(function (template) {
-                context.$element().html(template());
-
-
+                // take user input
+                $('btn-signup').on('click', function () {
+                    const user = {
+                        email: $('#email').val(),
+                        password: $('#password').val()
+                    };
+                    // send http request to server
+                    data.users.signUp(user)
+                        .then(function () {
+                            console.log('user registered');
+                        });
+                });
             });
     }
 
     return {
-        login,
-        register
+        //signIn,
+        signUp
     };
 }();
