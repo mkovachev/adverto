@@ -16,6 +16,7 @@ const usersController = function () {
                     // send http request to server
                     db.users.signUp(user)
                         .then(function () {
+                            context.redirect('#/signin');
                             toastr.success('You are registered, please sign in!');
                         });
                 });
@@ -38,6 +39,7 @@ const usersController = function () {
                     // send http request to server
                     db.users.signIn(user)
                         .then(function () {
+                            context.redirect('#/');
                             toastr.success('You are signed in!');
                         });
                 });
