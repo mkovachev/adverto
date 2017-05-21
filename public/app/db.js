@@ -1,7 +1,7 @@
 const db = (function () {
 
-
     /* User */
+    /* Sing up */
     function signUp(user) {
         const promise = new Promise((resolve, reject) => {
             const url = 'api/users';
@@ -25,6 +25,7 @@ const db = (function () {
         return promise;
     }
 
+    /* Sign in*/
     function signIn(user) {
         const promise = new Promise((resolve, reject) => {
             const url = 'api/users/auth';
@@ -51,11 +52,29 @@ const db = (function () {
 
 
     /* Ads */
-    function myAdsGet() {
+    function get() {
         const promise = new Promise((resolve, reject) => {
             const url = 'api/myads';
             $.getJSON(url, function (res) {
                 resolve(res);
+            }).error(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    }
+
+    function add(newAd) {
+        const promise = new Promise((resolve, reject) => {
+            const url = 'api/myads/add';
+            $.ajax(url, {
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(newAd),
+                // add header
+                success: function (res) {
+                    resolve(res);
+                }
             }).error(function (err) {
                 reject(err);
             });
@@ -70,7 +89,10 @@ const db = (function () {
             signUp,
             signIn,
             //signOut,
-            myAdsGet
+        },
+        ads: {
+            get,
+            add
         }
     };
 })();
