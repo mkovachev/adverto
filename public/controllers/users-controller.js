@@ -8,7 +8,7 @@ const usersController = function () {
                 context.$element().html(template());
 
                 // get user input
-                $('btn-signUp').on('click', function () {
+                $('#btn-signUp').on('click', function () {
                     const user = {
                         email: $('#email').val(),
                         password: $('#password').val()
@@ -30,7 +30,7 @@ const usersController = function () {
                 context.$element().html(template());
 
                 // get user input
-                $('btn-signIn').on('click', function () {
+                $('#btn-signIn').on('click', function () {
                     const user = {
                         email: $('#email').val(),
                         password: $('#password').val()
