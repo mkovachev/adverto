@@ -3,11 +3,13 @@ const usersController = function () {
     // function signIn(context) {}
 
     function signUp(context) {
-        // render sign up view
+        // get sign up
         templates.get('signup')
             .then(function (template) {
+                // render sign up
                 context.$element().html(template());
-                // take user input
+
+                // get user input
                 $('btn-signup').on('click', function () {
                     const user = {
                         email: $('#email').val(),
@@ -16,7 +18,7 @@ const usersController = function () {
                     // send http request to server
                     data.users.signUp(user)
                         .then(function () {
-                            console.log('user registered');
+                            toastr.success('You are registered, please sign in!');
                         });
                 });
             });

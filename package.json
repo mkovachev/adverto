@@ -13,15 +13,14 @@
     "url": "https://github.com/mkovachev/adverto/issues"
   },
   "homepage": "https://github.com/mkovachev/adverto#readme",
-
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
-    "bcryptjs": "*",
+    "bootstrap": "*",
+    "express": "*",
+    "handlebars": "*",
     "jquery": "*",
     "sammy": "*",
-    "bootstrap": "*",
-    "handlebars": "*",
+    "crypto-js": "*",
     "toastr": "*"
   },
   "devDependencies": {
