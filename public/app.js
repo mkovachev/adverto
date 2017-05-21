@@ -3,8 +3,8 @@
         this.get('#/', homeController.all)
         this.get('#/signup', usersController.signUp)
         this.get('#/signin', usersController.signIn)
-        //this.get('#/categories/add', categoriesController.add)
-        //this.get('#/newAd', categoriesController.newAd)
+        this.get('#/myAds', adsController.all)
+        this.get('#/myAds/add', adsController.add)
     })
 
     $(function () {

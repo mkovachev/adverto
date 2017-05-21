@@ -1,5 +1,7 @@
 const db = (function () {
 
+
+    /* User */
     function signUp(user) {
         const promise = new Promise((resolve, reject) => {
             const url = 'api/users';
@@ -47,11 +49,28 @@ const db = (function () {
     }
     // function signOut(user) {}
 
+
+    /* Ads */
+    function myAdsGet() {
+        const promise = new Promise((resolve, reject) => {
+            const url = 'api/myads';
+            $.getJSON(url, function (res) {
+                resolve(res);
+            }).error(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    }
+
+
+
     return {
         users: {
             signUp,
             signIn,
             //signOut,
+            myAdsGet
         }
     };
 })();

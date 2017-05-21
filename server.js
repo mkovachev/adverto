@@ -13,8 +13,10 @@ app.use(express.static('node_modules'));
 
 //routes
 const users = require('./routes/users-router');
+const ads = require('./routes/ads-router');
 app.use('/api/users', users);
 app.use('/api/users/auth', users);
+app.use('/api/myads', ads);
 
 // start server
 const port = 3000;
