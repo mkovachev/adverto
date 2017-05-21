@@ -14,7 +14,7 @@ app.use(express.static('node_modules'));
 //routes
 const users = require('./routes/users-router');
 app.use('/api/users', users);
-
+app.use('/api/users/auth', users);
 
 // start server
 const port = 3000;

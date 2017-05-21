@@ -1,22 +1,20 @@
 const usersController = function () {
 
-    // function signIn(context) {}
-
     function signUp(context) {
         // get sign up
-        templates.get('signup')
+        templates.get('signUp')
             .then(function (template) {
                 // render sign up
                 context.$element().html(template());
 
                 // get user input
-                $('btn-signup').on('click', function () {
+                $('btn-signUp').on('click', function () {
                     const user = {
                         email: $('#email').val(),
                         password: $('#password').val()
                     };
                     // send http request to server
-                    data.users.signUp(user)
+                    db.users.signUp(user)
                         .then(function () {
                             toastr.success('You are registered, please sign in!');
                         });
@@ -24,8 +22,30 @@ const usersController = function () {
             });
     }
 
+    function signIn(context) {
+        // get sign in
+        templates.get('signIn')
+            .then(function (template) {
+                // render sign in
+                context.$element().html(template());
+
+                // get user input
+                $('btn-signIn').on('click', function () {
+                    const user = {
+                        email: $('#email').val(),
+                        password: $('#password').val()
+                    };
+                    // send http request to server
+                    db.users.signIn(user)
+                        .then(function () {
+                            toastr.success('You are signed in!');
+                        });
+                });
+            });
+    }
+
     return {
-        //signIn,
-        signUp
+        signUp,
+        signIn
     };
 }();

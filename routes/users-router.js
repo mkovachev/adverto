@@ -6,5 +6,10 @@ router.get('/api/users', function (req, res) {
     res.render('users');
 });
 
+// auth
+router.get('/api/users/auth', function (req, res) {
+    res.render('users');
+});
+
 
 module.exports = router;

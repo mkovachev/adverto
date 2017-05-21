@@ -1,8 +1,5 @@
 const db = (function () {
 
-    // function signIn(user) {}
-    // function signOut(user) {}
-
     function signUp(user) {
         const promise = new Promise((resolve, reject) => {
             const url = 'api/users';
@@ -26,11 +23,35 @@ const db = (function () {
         return promise;
     }
 
+    function signIn(user) {
+        const promise = new Promise((resolve, reject) => {
+            const url = 'api/users/auth';
+
+            const reqUser = {
+                email: user.email,
+                passHash: CryptoJS.SHA1(user.password).toString()
+            }
+
+            $.ajax(url, {
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(reqUser),
+                success: function (res) {
+                    resolve(res);
+                }
+            }).error(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    }
+    // function signOut(user) {}
+
     return {
         users: {
-            //signIn,
+            signUp,
+            signIn,
             //signOut,
-            signUp
         }
     };
 })();
